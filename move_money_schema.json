@@ -1,0 +1,2030 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft/2019-09/schema#", 
+  "$id": "https://example.com/object1657602367.json", 
+  "title": "Root", 
+  "type": "object",
+  "required": [
+    "header",
+    "instruction"
+  ],
+  "properties": {
+    "header": {
+      "$id": "#root/header", 
+      "title": "Header", 
+      "type": "object",
+      "required": [
+        "messageSender",
+        "countryCode",
+        "timestamp"
+      ],
+      "properties": {
+        "messageSender": {
+          "$id": "#root/header/messageSender", 
+          "title": "Messagesender", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Corp Inc."
+          ],
+          
+          "minLength": 0,
+          "maxLength": 246
+        },
+        "messageId": {
+          "$id": "#root/header/messageId", 
+          "title": "Messageid", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "111111-1111111"
+          ]
+        },
+        "countryCode": {
+          "$id": "#root/header/countryCode", 
+          "title": "Countrycode", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "MY"
+          ],
+          "minLength": 0,
+          "maxLength": 2
+        },
+        "timestamp": {
+          "$id": "#root/header/timestamp", 
+          "title": "Timestamp", 
+          "type": "integer",
+          "examples": [
+            0
+          ],
+          "default": 0
+        }
+      }
+    }
+,
+    "instruction": {
+      "$id": "#root/instruction", 
+      "title": "Instruction", 
+      "type": "object",
+      "required": [
+        "paymentTimestamp",
+        "paymentTypePreference",
+        "amount",
+        "referenceId",
+        "purpose",
+        "paymentType",
+        "debtor",
+        "debtorAddress",
+        "debtorAccount",
+        "debtorAgent",
+        "creditor",
+        "creditorAgent",
+        "creditorAccount"
+        
+      ],
+      "properties": {
+        "paymentTimestamp": {
+          "$id": "#root/instruction/paymentTimestamp", 
+          "title": "Paymenttimestamp", 
+          "type": "integer",
+          "examples": [
+            0
+          ],
+          "default": 0
+        },
+        "paymentTypePreference": {
+          "$id": "#root/instruction/paymentTypePreference", 
+          "title": "Paymenttypepreference", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Fastest"
+          ],
+          "minLength": 0,
+          "maxLength": 20,
+          "enum": ["Fastest","Cheapest","Expicit"]
+          
+        },
+        "requiredExecutionDate": {
+          "$id": "#root/instruction/requiredExecutionDate", 
+          "title": "Requiredexecutiondate", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "2022-07-12"
+          ]
+          
+        },
+        "amount": {
+          "$id": "#root/instruction/amount", 
+          "title": "Amount", 
+          "type": "object",
+          "required": [
+            "currencyCode",
+            "amount"
+          ],
+          "properties": {
+            "currencyCode": {
+              "$id": "#root/instruction/amount/currencyCode", 
+              "title": "Currencycode", 
+              "type": "string",
+              "default": "",
+              "minLength": 3,
+              "maxLength": 3,
+              "examples": [
+                "EUR"
+              ]
+              
+            },
+            "amount": {
+              "$id": "#root/instruction/amount/amount", 
+              "title": "Amount", 
+              "type": "number",
+              "examples": [
+                12000.12
+              ],
+              "default": 0.0
+            },
+            "priority": {
+              "$id": "#root/instruction/amount/priority", 
+              "title": "Priority", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "C"
+              ],
+              "minLength": 0,
+              "maxLength": 2
+            }
+          }
+        }
+,
+        "referenceId": {
+          "$id": "#root/instruction/referenceId", 
+          "title": "Referenceid", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "A999999999999"
+          ],
+              "minLength": 0,
+              "maxLength": 35
+        },
+        "purpose": {
+          "$id": "#root/instruction/purpose", 
+          "title": "Purpose", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "CASH"
+          ],
+              "minLength": 0,
+              "maxLength": 10
+        },
+        "paymentType": {
+          "$id": "#root/instruction/paymentType", 
+          "title": "Paymenttype", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "IBFT"
+          ],
+
+          "minLength": 0,
+          "maxLength": 4
+
+          
+        },
+        "chargerBearer": {
+          "$id": "#root/instruction/chargerBearer", 
+          "title": "Chargerbearer", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "SHAR"
+          ],
+          "enum":["DEBT","CRED","SHAR","SLEV"]
+          
+        },
+        "debtor": {
+          "$id": "#root/instruction/debtor", 
+          "title": "Debtor", 
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "$id": "#root/instruction/debtor/name", 
+              "title": "Name", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Client Corp Inc."
+              ],
+               "minLength": 1,
+               "maxLength": 140,
+              "pattern": "^[a-zA-Z0-9/&()\/-@,.'*\" ]*$"
+
+              
+            },
+            "contact": {
+              "$id": "#root/instruction/debtor/contact", 
+              "title": "Contact", 
+              "type": "object",
+              "required": [
+                "phoneNumber",
+                "mobileNumber",
+                "emailAddress",
+                "faxNumber",
+                "name",
+                "empty"
+              ],
+              "properties": {
+                "phoneNumber": {
+                  "$id": "#root/instruction/debtor/contact/phoneNumber", 
+                  "title": "Phonenumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "+001-11111111"
+                  ],
+                   "minLength": 0,
+                   "maxLength": 35
+                  
+                },
+                "mobileNumber": {
+                  "$id": "#root/instruction/debtor/contact/mobileNumber", 
+                  "title": "Mobilenumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "+001-11111111"
+                  ], "minLength": 0,
+                     "maxLength": 35
+                  
+                },
+                "emailAddress": {
+                  "$id": "#root/instruction/debtor/contact/emailAddress", 
+                  "title": "Emailaddress", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "dRQNcvbq_+2kMo/*2*1pS"
+                  ],"minLength": 0,
+                     "maxLength":150,
+                  "pattern": "^[a-zA-Z0-9&()//\/-@,.;+_'*\" ]*$"
+
+                  
+                },
+                "faxNumber": {
+                  "$id": "#root/instruction/debtor/contact/faxNumber", 
+                  "title": "Faxnumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength": 35,
+                  "minLength": 0
+
+                  
+                },
+                "name": {
+                  "$id": "#root/instruction/debtor/contact/name", 
+                  "title": "Name", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "'RXoEB'mDPzdG0fH@DDO(p"
+                  ],
+                  "maxLength": 140,
+                  "minLength": 0,
+                  "pattern" : "^[a-zA-Z0-9&()\/-@,.'*\" ]*$"
+                },
+                "empty": {
+                  "$id": "#root/instruction/debtor/contact/empty", 
+                  "title": "Empty", 
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ],
+                  "default": true
+                }
+              }
+            }
+
+          }
+        }
+,
+        "debtorAddress": {
+          "$id": "#root/instruction/debtorAddress", 
+          "title": "Debtoraddress", 
+          "type": "object",
+          "required": [
+            "streetName",
+            "buildingNumber",
+            "postCode",
+            "country",
+            "addressLines"
+          ],
+          "properties": {
+            "addressType": {
+              "$id": "#root/instruction/debtorAddress/addressType", 
+              "title": "Addresstype", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "BIZZ"
+              ],
+              
+              "enum":["ADDR","PBOX","HOME","BIZZ","MLTO","DLVY"]
+              
+            },
+            "department": {
+              "$id": "#root/instruction/debtorAddress/department", 
+              "title": "Department", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 70,
+              "minLength": 0
+              
+            },
+            "subDepartment": {
+              "$id": "#root/instruction/debtorAddress/subDepartment", 
+              "title": "Subdepartment", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 70,
+              "minLength": 1
+              
+            },
+            "streetName": {
+              "$id": "#root/instruction/debtorAddress/streetName", 
+              "title": "Streetname", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "buildingNumber": {
+              "$id": "#root/instruction/debtorAddress/buildingNumber", 
+              "title": "Buildingnumber", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 16,
+              "minLength": 1
+              
+            },
+            "townName": {
+              "$id": "#root/instruction/debtorAddress/townName", 
+              "title": "Townname", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 35,
+              "minLength": 0
+              
+            },
+            "postCode": {
+              "$id": "#root/instruction/debtorAddress/postCode", 
+              "title": "Postcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 16,
+              "minLength": 1
+              
+            },
+            "countrySubDivision": {
+              "$id": "#root/instruction/debtorAddress/countrySubDivision", 
+              "title": "Countrysubdivision", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 35,
+              "minLength": 0
+              
+            },
+            "country": {
+              "$id": "#root/instruction/debtorAddress/country", 
+              "title": "Country", 
+              "type": "object",
+              "required": [
+                "isoCode"
+              ],
+              "properties": {
+                "isoCode": {
+                  "$id": "#root/instruction/debtorAddress/country/isoCode", 
+                  "title": "Isocode", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "st"
+                  ],
+                  "maxLength": 2,
+                  "minLength": 2
+                  
+                }
+              }
+            }
+,
+            "addressLines": {
+              "$id": "#root/instruction/debtorAddress/addressLines", 
+              "title": "Addresslines", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/debtorAddress/addressLines/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            }
+          }
+        }
+,
+        "debtorAccount": {
+          "$id": "#root/instruction/debtorAccount", 
+          "title": "Debtoraccount", 
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$id": "#root/instruction/debtorAccount/id", 
+              "title": "Id", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "11111111111111"
+              ],
+              "maxLength": 34,
+              "minLength": 1,
+              "pattern":"^[a-zA-Z0-9]+$"
+              
+            },
+            "identifierType": {
+              "$id": "#root/instruction/debtorAccount/identifierType", 
+              "title": "Identifiertype", 
+              "type": "string",
+              "default": "BBAN",
+              "examples": [
+                "IBAN"
+              ],
+              "enum":["BBAN","IBAN","Other"]
+            },
+            "accountType": {
+              "$id": "#root/instruction/debtorAccount/accountType", 
+              "title": "Accounttype", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "CASH"
+              ],
+              "enum":[ "CACC", "CASH", "CISH", "COMM", "CPAC", "LLSV", "LOAN", "MGLD", "MOMA", "NREX", "ODFT", "ONDP", "OTHR", "SACC", "SLRY", "SVGS", "TAXE", "TRAN", "TRAS" ]
+              
+            },
+            "currency": {
+              "$id": "#root/instruction/debtorAccount/currency", 
+              "title": "Currency", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "city": {
+              "$id": "#root/instruction/debtorAccount/city", 
+              "title": "City", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "debtorAgent": {
+          "$id": "#root/instruction/debtorAgent", 
+          "title": "Debtoragent", 
+          "type": "object",
+          "required": [
+            "financialInstitution",
+            "clearingSystemId"
+          ],
+          "properties": {
+            "financialInstitution": {
+              "$id": "#root/instruction/debtorAgent/financialInstitution", 
+              "title": "Financialinstitution", 
+              "type": "object",
+              "properties": {
+                "BIC": {
+                  "$id": "#root/instruction/debtorAgent/financialInstitution/BIC", 
+                  "title": "Bic", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "SCBLSGSGXXX"
+                  ],
+                  "maxLength" : 11,
+                  "minLength" : 0,
+                  "pattern": "^[a-zA-Z0-9]*$"
+                  
+                },
+                "postalAddress": {
+                  "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress", 
+                  "title": "Postaladdress", 
+                  "type": "object",
+                  "properties": {
+                    "line_1": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/line_1", 
+                      "title": "Line_1", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "BL7f8vWDsE6ufFhL5bV)Tj,wHofLh+u45F_q1QcCu"
+                      ],
+                      "maxLength" : 70,
+                      "minLength" : 0,
+                      "pattern": "^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "line_2": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/line_2", 
+                      "title": "Line_2", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        ",aXbf,WhDIP5Ykso:'9LojSM97Yiobze"
+                      ],
+                      "maxLength" : 70,
+                      "minLength" : 0,
+                      "pattern": "^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "line_3": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/line_3", 
+                      "title": "Line_3", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "DXw+12CpRr0?.?BD"
+                      ],
+                      
+                      "maxLength" : 16,
+                      "minLength" : 0,
+                      "pattern": "^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "city": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/city", 
+                      "title": "City", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength" : 35,
+                      "minLength" : 0
+                      
+                    },
+                    "state": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/state", 
+                      "title": "State", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength" : 35,
+                      "minLength" : 0
+                      
+                    },
+                    "postcode": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/postcode", 
+                      "title": "Postcode", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength" : 16,
+                      "minLength" : 0
+                      
+                    },
+                    "country": {
+                      "$id": "#root/instruction/debtorAgent/financialInstitution/postalAddress/country", 
+                      "title": "Country", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "DO"
+                      ],
+                      "maxLength" : 2,
+                      "minLength" : 0,
+                      "pattern":"^[A-Z]*$"
+                      
+                    }
+                  }
+                }
+,
+                "branchCode": {
+                  "$id": "#root/instruction/debtorAgent/financialInstitution/branchCode", 
+                  "title": "Branchcode", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "strin"
+                  ],
+                  "maxLength" : 5,
+                  "minLength" : 0
+                  
+                },
+                "name": {
+                  "$id": "#root/instruction/debtorAgent/financialInstitution/name", 
+                  "title": "Name", 
+                  "type": "string",
+                  "default": "Standard Chartered Bank",
+                  "examples": [
+                    "string"
+                  ],
+                   "maxLength" : 35,
+                  "minLength" : 0
+                  
+                },
+                "type": {
+                  "$id": "#root/instruction/debtorAgent/financialInstitution/type", 
+                  "title": "Type", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "CH"
+                  ],
+                  "enum":["CH","AC","SW","CP","FW","SC","TX","LC"]
+                  
+                }
+              }
+            }
+,
+            "clearingSystemId": {
+              "$id": "#root/instruction/debtorAgent/clearingSystemId", 
+              "title": "Clearingsystemid", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "S3j1kDDU"
+              ],
+              "maxLength":8,
+              "minLength":0,
+              "pattern": "^[a-zA-Z0-9]+$"
+              
+            },
+            "clearingSystemCode": {
+              "$id": "#root/instruction/debtorAgent/clearingSystemCode", 
+              "title": "Clearingsystemcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "branchCode": {
+              "$id": "#root/instruction/debtorAgent/branchCode", 
+              "title": "Branchcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+               "maxLength":5,
+              "minLength":0
+              
+            },
+            "subBranchCode": {
+              "$id": "#root/instruction/debtorAgent/subBranchCode", 
+              "title": "Subbranchcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "creditor": {
+          "$id": "#root/instruction/creditor", 
+          "title": "Creditor", 
+          "type": "object",
+          
+          "properties": {
+            "name": {
+              "$id": "#root/instruction/creditor/name", 
+              "title": "Name", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "John Doe"
+              ],
+               "maxLength":140,
+              "minLength":0
+              
+            },
+            "postalAddress": {
+              "$id": "#root/instruction/creditor/postalAddress", 
+              "title": "Postaladdress", 
+              "type": "object",
+              
+              "properties": {
+                "line_1": {
+                  "$id": "#root/instruction/creditor/postalAddress/line_1", 
+                  "title": "Line_1", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "6dniU4h7kp_(W',D.+e6qtD7z'hnoC:DGHarBLlhNB(+w06:uDRT)UmalMPh?_OO4"
+                  ],
+                   "maxLength":70,
+                   "minLength":0,
+                   "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                  
+                },
+                "line_2": {
+                  "$id": "#root/instruction/creditor/postalAddress/line_2", 
+                  "title": "Line_2", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "(gW60BtsSKcX+VhDrs(h7 fl3),BW,M-/F)i2O+6ERvlW9EyTBIpZhF+WVm?LT:fx2Z.tJ"
+                  ],
+                   "maxLength":70,
+                   "minLength":0,
+                   "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                  
+                },
+                "line_3": {
+                  "$id": "#root/instruction/creditor/postalAddress/line_3", 
+                  "title": "Line_3", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "QqnL)Bx6:X76?d1)"
+                  ],
+                   "maxLength":16,
+                   "minLength":0,
+                   "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                  
+                },
+                "city": {
+                  "$id": "#root/instruction/creditor/postalAddress/city", 
+                  "title": "City", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                  
+                },
+                "state": {
+                  "$id": "#root/instruction/creditor/postalAddress/state", 
+                  "title": "State", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                  
+                },
+                "postcode": {
+                  "$id": "#root/instruction/creditor/postalAddress/postcode", 
+                  "title": "Postcode", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":16,
+                  "minLength":0
+                },
+                "country": {
+                  "$id": "#root/instruction/creditor/postalAddress/country", 
+                  "title": "Country", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "HJ"
+                  ],
+                  "maxLength":2,
+                  "minLength":0,
+                  "pattern":"^[A-Z]*$"
+                  
+                }
+              }
+            }
+,
+            "contact": {
+              "$id": "#root/instruction/creditor/contact", 
+              "title": "Contact", 
+              "type": "object",
+             
+              "properties": {
+                "phoneNumber": {
+                  "$id": "#root/instruction/creditor/contact/phoneNumber", 
+                  "title": "Phonenumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "+001-11111111"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                  
+                },
+                "mobileNumber": {
+                  "$id": "#root/instruction/creditor/contact/mobileNumber", 
+                  "title": "Mobilenumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "+001-11111111"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                  
+                },
+                "emailAddress": {
+                  "$id": "#root/instruction/creditor/contact/emailAddress", 
+                  "title": "Emailaddress", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "87v0'p((LZv'dzksZ-NWy6q,'mTVfp--"
+                  ],
+                  "maxLength":150,
+                  "minLength":0,
+                   "pattern": "^[a-zA-Z0-9&()/\/-@,.;+_'*\" ]*$"
+                  
+                },
+                "faxNumber": {
+                  "$id": "#root/instruction/creditor/contact/faxNumber", 
+                  "title": "Faxnumber", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                  
+                },
+                "name": {
+                  "$id": "#root/instruction/creditor/contact/name", 
+                  "title": "Name", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "F6mX'8QV@pVGYjXAVv9O"
+                  ],
+                  "maxLength":140,
+                  "minLength":0,
+                   "pattern": "^[a-zA-Z0-9&()\/\\-@,.'*\" ]*$"
+                  
+                },
+                "empty": {
+                  "$id": "#root/instruction/creditor/contact/empty", 
+                  "title": "Empty", 
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ],
+                  "default": true
+                }
+              }
+            }
+,
+            "identity": {
+              "$id": "#root/instruction/creditor/identity", 
+              "title": "Identity", 
+              "type": "object",
+              "required": [
+                "id",
+                "identityType"
+              ],
+              "properties": {
+                "id": {
+                  "$id": "#root/instruction/creditor/identity/id", 
+                  "title": "Id", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "FPS123456"
+                  ],
+                  "maxLength":117,
+                  "minLength":1
+                  
+                  
+                },
+                "identityType": {
+                  "$id": "#root/instruction/creditor/identity/identityType", 
+                  "title": "Identitytype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "RetNRIC"
+                  ],
+                  "maxLength":12,
+                  "minLength":0
+                  
+                }
+              }
+            }
+,
+            "referenceId": {
+              "$id": "#root/instruction/creditor/referenceId", 
+              "title": "Referenceid", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":35,
+              "minLength":1
+            },
+            "jointBeneficiaryName": {
+              "$id": "#root/instruction/creditor/jointBeneficiaryName", 
+              "title": "Jointbeneficiaryname", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "jointBeneficiaryIdentity": {
+              "$id": "#root/instruction/creditor/jointBeneficiaryIdentity", 
+              "title": "Jointbeneficiaryidentity", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":32,
+              "minLength":0
+              
+            },
+            "jointBeneficiaryIdentityType": {
+              "$id": "#root/instruction/creditor/jointBeneficiaryIdentityType", 
+              "title": "Jointbeneficiaryidentitytype", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "creditorAgent": {
+          "$id": "#root/instruction/creditorAgent", 
+          "title": "Creditoragent", 
+          "type": "object",
+          "required": [
+            "financialInstitution",
+            "clearingSystemId"
+          ],
+          "properties": {
+            "financialInstitution": {
+              "$id": "#root/instruction/creditorAgent/financialInstitution", 
+              "title": "Financialinstitution", 
+              "type": "object",
+           
+              "properties": {
+                "BIC": {
+                  "$id": "#root/instruction/creditorAgent/financialInstitution/BIC", 
+                  "title": "Bic", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "SCBLSGSGXXX"
+                  ],
+                  "maxLength":11,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9]*$"
+                },
+                "postalAddress": {
+                  "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress", 
+                  "title": "Postaladdress", 
+                  "type": "object",
+                  
+                  "properties": {
+                    "line_1": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/line_1", 
+                      "title": "Line_1", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ON_?SKMI8wKcea:8?NlPBA/QCBj9mdlT"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "line_2": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/line_2", 
+                      "title": "Line_2", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "OUS?n2I.MQs"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                    },
+                    "line_3": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/line_3", 
+                      "title": "Line_3", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "yE0x11khiXZqVY2J"
+                      ],
+                      "maxLength":16,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                    },
+                    "city": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/city", 
+                      "title": "City", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength":35,
+                      "minLength":0
+                      
+                    },
+                    "state": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/state", 
+                      "title": "State", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength":35,
+                      "minLength":0
+                      
+                    },
+                    "postcode": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/postcode", 
+                      "title": "Postcode", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "string"
+                      ],
+                      "maxLength":16,
+                      "minLength":0
+                    },
+                    "country": {
+                      "$id": "#root/instruction/creditorAgent/financialInstitution/postalAddress/country", 
+                      "title": "Country", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "YR"
+                      ],
+                      "maxLength":2,
+                      "minLength":0,
+                      "pattern":"^[A-Z]*$"
+                      
+                    }
+                  }
+                }
+,
+                "branchCode": {
+                  "$id": "#root/instruction/creditorAgent/financialInstitution/branchCode", 
+                  "title": "Branchcode", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "strin"
+                  ],
+                  "maxLength":5,
+                  "minLength":0
+                },
+                "name": {
+                  "$id": "#root/instruction/creditorAgent/financialInstitution/name", 
+                  "title": "Name", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                },
+                "type": {
+                  "$id": "#root/instruction/creditorAgent/financialInstitution/type", 
+                  "title": "Type", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "CH"
+                  ],
+                  "enum":["CH","AC","SW","CP","FW","SC","TX","LC"]
+                }
+              }
+            }
+,
+            "clearingSystemId": {
+              "$id": "#root/instruction/creditorAgent/clearingSystemId", 
+              "title": "Clearingsystemid", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "pKf73ci7"
+              ],
+              "maxLength":8,
+              "minLength":0,
+              "pattern": "^[a-zA-Z0-9]+$"
+
+              
+            },
+            "clearingSystemCode": {
+              "$id": "#root/instruction/creditorAgent/clearingSystemCode", 
+              "title": "Clearingsystemcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "branchCode": {
+              "$id": "#root/instruction/creditorAgent/branchCode", 
+              "title": "Branchcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":5,
+              "minLength":0
+
+            },
+            "subBranchCode": {
+              "$id": "#root/instruction/creditorAgent/subBranchCode", 
+              "title": "Subbranchcode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "creditorAccount": {
+          "$id": "#root/instruction/creditorAccount", 
+          "title": "Creditoraccount", 
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$id": "#root/instruction/creditorAccount/id", 
+              "title": "Id", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "11111111111111"
+              ],
+              "maxLength":34,
+              "minLength":1,
+              "pattern":"^[a-zA-Z0-9]+$"
+
+              
+            },
+            "identifierType": {
+              "$id": "#root/instruction/creditorAccount/identifierType", 
+              "title": "Identifiertype",
+              "type": "string",
+              "default": "BBAN",
+              "examples": [
+                "IBAN"
+              ],
+              "enum":["BBAN","IBAN","Other"]
+              
+            },
+            "accountType": {
+              "$id": "#root/instruction/creditorAccount/accountType", 
+              "title": "Accounttype", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "CASH"
+              ],
+              "enum":[ "CACC", "CASH", "CISH", "COMM", "CPAC", "LLSV", "LOAN", "MGLD", "MOMA", "NREX", "ODFT", "ONDP", "OTHR", "SACC", "SLRY", "SVGS", "TAXE", "TRAN", "TRAS" ]
+              
+            },
+            "currency": {
+              "$id": "#root/instruction/creditorAccount/currency", 
+              "title": "Currency", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "city": {
+              "$id": "#root/instruction/creditorAccount/city", 
+              "title": "City", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "creditorExtension": {
+          "$id": "#root/instruction/creditorExtension", 
+          "title": "Creditorextension", 
+          "type": "object",
+          
+          "properties": {
+            "addressLinesLocalLanguage": {
+              "$id": "#root/instruction/creditorExtension/addressLinesLocalLanguage", 
+              "title": "Addresslineslocallanguage", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/creditorExtension/addressLinesLocalLanguage/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            },
+            "emailLinesLocalLanguage": {
+              "$id": "#root/instruction/creditorExtension/emailLinesLocalLanguage", 
+              "title": "Emaillineslocallanguage", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/creditorExtension/emailLinesLocalLanguage/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            },
+            "nameLocalLanguage": {
+              "$id": "#root/instruction/creditorExtension/nameLocalLanguage", 
+              "title": "Namelocallanguage", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/creditorExtension/nameLocalLanguage/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            }
+          }
+        }
+,
+        "recordExtension": {
+          "$id": "#root/instruction/recordExtension", 
+          "title": "Recordextension", 
+          "type": "object",
+          "properties": {
+            "whtDescLocalLanguage": {
+              "$id": "#root/instruction/recordExtension/whtDescLocalLanguage", 
+              "title": "Whtdesclocallanguage", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/recordExtension/whtDescLocalLanguage/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            }
+          }
+        }
+,
+        "remittanceInfo": {
+          "$id": "#root/instruction/remittanceInfo", 
+          "title": "Remittanceinfo", 
+          "type": "object",
+         
+          "properties": {
+            "unstructured": {
+              "$id": "#root/instruction/remittanceInfo/unstructured", 
+              "title": "Unstructured", 
+              "type": "string",
+              "default": "",
+              "maxLength":70,
+              "minLength":0,
+              "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+              
+            },
+            "structured": {
+              "$id": "#root/instruction/remittanceInfo/structured", 
+              "title": "Structured", 
+              "type": "object",
+              "properties": {
+                "creditorReferenceType": {
+                  "$id": "#root/instruction/remittanceInfo/structured/creditorReferenceType", 
+                  "title": "Creditorreferencetype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "I-.VzjHp'b"
+                  ],
+                  "maxLength":10,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+                },
+                "creditorReferenceId": {
+                  "$id": "#root/instruction/remittanceInfo/structured/creditorReferenceId", 
+                  "title": "Creditorreferenceid", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "5bOG:CWaeUpKP-+LNaYbM?u.fv6XiLszG+w"
+                  ],
+                  "maxLength":35,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+                },
+                "creditorReferenceDetails": {
+                  "$id": "#root/instruction/remittanceInfo/structured/creditorReferenceDetails", 
+                  "title": "Creditorreferencedetails", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ]
+                  
+                }
+              }
+            }
+,
+            "multiUnstructured": {
+              "$id": "#root/instruction/remittanceInfo/multiUnstructured", 
+              "title": "Multiunstructured", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/remittanceInfo/multiUnstructured/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ],
+                "properties": {
+                    "line_1": {
+                       
+                      "title": "Line_1", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ON_?SKMI8wKcea:8?NlPBA/QCBj9mdlT"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "line_2": {
+                       
+                      "title": "Line_2", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "OUS?n2I.MQs"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                    }
+                
+              }
+            }
+          }
+        }
+,
+        "relatedRemittanceInfo": {
+          "$id": "#root/instruction/relatedRemittanceInfo", 
+          "title": "Relatedremittanceinfo", 
+          "type": "object",
+          
+          "properties": {
+            "unstructured": {
+              "$id": "#root/instruction/relatedRemittanceInfo/unstructured", 
+              "title": "Unstructured", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "mUamK?c.)580NTI/Zp,o1uM(/VP-S )jSoH'yyUVj?\\?I26QuE+EGNv.u'nizwOU?eE)\\4"
+              ],
+              "maxLength":70,
+              "minLength":0,
+              "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+
+              
+            },
+            "structured": {
+              "$id": "#root/instruction/relatedRemittanceInfo/structured", 
+              "title": "Structured", 
+              "type": "object",
+              
+              "properties": {
+                "creditorReferenceType": {
+                  "$id": "#root/instruction/relatedRemittanceInfo/structured/creditorReferenceType", 
+                  "title": "Creditorreferencetype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "Gt50i?bZB)"
+                  ],
+                  "maxLength":10,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+                  
+                },
+                "creditorReferenceId": {
+                  "$id": "#root/instruction/relatedRemittanceInfo/structured/creditorReferenceId", 
+                  "title": "Creditorreferenceid", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "1qFKpw0M4bDWm6enim'?((p7B7tYVipOD7E"
+                  ],
+
+                  "maxLength":35,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+                  
+                },
+                "creditorReferenceDetails": {
+                  "$id": "#root/instruction/relatedRemittanceInfo/structured/creditorReferenceDetails", 
+                  "title": "Creditorreferencedetails", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ]
+                  
+                }
+              }
+            }
+,
+            "multiUnstructured": {
+              "$id": "#root/instruction/relatedRemittanceInfo/multiUnstructured", 
+              "title": "Multiunstructured", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/relatedRemittanceInfo/multiUnstructured/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ],
+                "properties": {
+                    "line_1": {
+                       
+                      "title": "Line_1", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ON_?SKMI8wKcea:8?NlPBA/QCBj9mdlT"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                      
+                    },
+                    "line_2": {
+                       
+                      "title": "Line_2", 
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "OUS?n2I.MQs"
+                      ],
+                      "maxLength":70,
+                      "minLength":0,
+                      "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                    }
+                
+              }
+            }
+          }
+        }
+,
+        "remittanceInfoExtension": {
+          "$id": "#root/instruction/remittanceInfoExtension", 
+          "title": "Remittanceinfoextension", 
+          
+          "properties": {
+            "unstructured": {
+              "$id": "#root/instruction/remittanceInfoExtension/unstructured", 
+              "title": "Unstructured", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength": 35,
+              "minLength":0
+            },
+            "structured": {
+              "$id": "#root/instruction/remittanceInfoExtension/structured", 
+              "title": "Structured", 
+              "type": "object",
+             
+              "properties": {
+                "creditorReferenceType": {
+                  "$id": "#root/instruction/remittanceInfoExtension/structured/creditorReferenceType", 
+                  "title": "Creditorreferencetype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "vPH\\BG9kOQ"
+                  ]
+                  
+                },
+                "creditorReferenceId": {
+                  "$id": "#root/instruction/remittanceInfoExtension/structured/creditorReferenceId", 
+                  "title": "Creditorreferenceid", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "vfB(9EiI"
+                  ],
+                  "maxLength":35,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$"  
+                },
+                "creditorReferenceDetails": {
+                  "$id": "#root/instruction/remittanceInfoExtension/structured/creditorReferenceDetails", 
+                  "title": "Creditorreferencedetails", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/\/-?:().,\\'\\+ ]*$" 
+                }
+              }
+            }
+,
+            "detailsLineLocalLanguage": {
+              "$id": "#root/instruction/remittanceInfoExtension/detailsLineLocalLanguage", 
+              "title": "Detailslinelocallanguage", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/remittanceInfoExtension/detailsLineLocalLanguage/items", 
+                "title": "Items", 
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "string"
+                ]
+                
+              }
+            }
+          }
+        }
+,
+        "onBehalfOfInfo": {
+          "$id": "#root/instruction/onBehalfOfInfo", 
+          "title": "Onbehalfofinfo", 
+          "type": "object",
+          "required": [
+            "name",
+            "account"
+          ],
+          "properties": {
+            "name": {
+              "$id": "#root/instruction/onBehalfOfInfo/name", 
+              "title": "Name", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "John Doe"
+              ]
+              
+            },
+            "postalAddress": {
+              "$id": "#root/instruction/onBehalfOfInfo/postalAddress", 
+              "title": "Postaladdress", 
+              "type": "object",
+             
+              "properties": {
+                "line_1": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/line_1", 
+                  "title": "Line_1", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "zT-9XU14zYVRxlqgzPcrA,7PmEMy6op,OgYhwqKy1M. tsnNoL9cYLsTd6xTL02TCTAHs "
+                  ],
+                  "maxLength":70,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                  
+                },
+                "line_2": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/line_2", 
+                  "title": "Line_2", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "lHBQx)Jw4IOXWfX+B14n9y9m?u+C7 x'.Rxv4YH8JslWoQeTdJE37"
+                  ],
+                  "maxLength":70,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                },
+                "line_3": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/line_3", 
+                  "title": "Line_3", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "4s_v?_:kkRjvZ'bd"
+                  ],
+                  "maxLength":16,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9/?:().,'_+ -]*$"
+                },
+                "city": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/city", 
+                  "title": "City", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                },
+                "state": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/state", 
+                  "title": "State", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":35,
+                  "minLength":0
+                },
+                "postcode": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/postcode", 
+                  "title": "Postcode", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ],
+                  "maxLength":16,
+                  "minLength":0
+                },
+                "country": {
+                  "$id": "#root/instruction/onBehalfOfInfo/postalAddress/country", 
+                  "title": "Country", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "LS"
+                  ],
+                  "maxLength":2,
+                  "minLength":0,
+                  "pattern":"^[A-Z]*$"
+                }
+              }
+            }
+,
+            "account": {
+              "$id": "#root/instruction/onBehalfOfInfo/account", 
+              "title": "Account", 
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "$id": "#root/instruction/onBehalfOfInfo/account/id", 
+                  "title": "Id", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "11111111111111"
+                  ],
+                  
+                  "maxLength":2,
+                  "minLength":0,
+                  "pattern":"^[a-zA-Z0-9]+$"
+                },
+                "identifierType": {
+                  "$id": "#root/instruction/onBehalfOfInfo/account/identifierType", 
+                  "title": "Identifiertype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "IBAN"
+                  ],
+                  "enum":["BBAN","IBAN","Other"]
+                  
+                },
+                "accountType": {
+                  "$id": "#root/instruction/onBehalfOfInfo/account/accountType", 
+                  "title": "Accounttype", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "CASH"
+                  ],
+                  "enum":[ "CACC", "CASH", "CISH", "COMM", "CPAC", "LLSV", "LOAN", "MGLD", "MOMA", "NREX", "ODFT", "ONDP", "OTHR", "SACC", "SLRY", "SVGS", "TAXE", "TRAN", "TRAS" ]
+                },
+                "currency": {
+                  "$id": "#root/instruction/onBehalfOfInfo/account/currency", 
+                  "title": "Currency", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ]
+                  
+                },
+                "city": {
+                  "$id": "#root/instruction/onBehalfOfInfo/account/city", 
+                  "title": "City", 
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "string"
+                  ]
+                  
+                }
+              }
+            }
+,
+            "oboType": {
+              "$id": "#root/instruction/onBehalfOfInfo/oboType", 
+              "title": "Obotype", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "K"
+              ]
+              
+            },
+            "partyIdentifierCode": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierCode", 
+              "title": "Partyidentifiercode", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ARNU - Alien Registration Number CCPT - Passport Number"
+              ]
+              
+            },
+            "partyIdentifierValue": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierValue", 
+              "title": "Partyidentifiervalue", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":34,
+              "minLength":0
+              
+            },
+            "partyIdentifierCountry": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierCountry", 
+              "title": "Partyidentifiercountry", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "partyIdentifierIssuer": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierIssuer", 
+              "title": "Partyidentifierissuer", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":26,
+              "minLength":0
+            },
+            "partyIdentifierRegisteringAuthority": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierRegisteringAuthority", 
+              "title": "Partyidentifierregisteringauthority", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":26,
+              "minLength":0
+            },
+            "partyIdentifierIssuingAuthority": {
+              "$id": "#root/instruction/onBehalfOfInfo/partyIdentifierIssuingAuthority", 
+              "title": "Partyidentifierissuingauthority", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ],
+              "maxLength":26,
+              "minLength":0
+            },
+            "oboAddressCodes": {
+              "$id": "#root/instruction/onBehalfOfInfo/oboAddressCodes", 
+              "title": "Oboaddresscodes", 
+              "type": "array",
+              "default": [],
+              "items":{
+                "$id": "#root/instruction/onBehalfOfInfo/oboAddressCodes/items", 
+                "title": "Items", 
+                "type": "object",
+                
+                "properties": {
+                  "code": {
+                    "$id": "#root/instruction/onBehalfOfInfo/oboAddressCodes/items/code", 
+                    "title": "Code", 
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "string"
+                    ]
+                    
+                  },
+                  "description": {
+                    "$id": "#root/instruction/onBehalfOfInfo/oboAddressCodes/items/description", 
+                    "title": "Description", 
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "string"
+                    ]
+                    
+                  }
+                }
+              }
+
+            },
+            "oboAddressLineIssuer": {
+              "$id": "#root/instruction/onBehalfOfInfo/oboAddressLineIssuer", 
+              "title": "Oboaddresslineissuer", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            },
+            "oboAddressLineIssuerLL": {
+              "$id": "#root/instruction/onBehalfOfInfo/oboAddressLineIssuerLL", 
+              "title": "Oboaddresslineissuerll", 
+              "type": "string",
+              "default": "",
+              "examples": [
+                "string"
+              ]
+              
+            }
+          }
+        }
+,
+        "serviceType": {
+          "$id": "#root/instruction/serviceType", 
+          "title": "Servicetype", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "01"
+          ]
+          
+        },
+        "subPaymentType": {
+          "$id": "#root/instruction/subPaymentType", 
+          "title": "Subpaymenttype", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "CDWL"
+          ]
+          
+        },
+        "sourceOfFund": {
+          "$id": "#root/instruction/sourceOfFund", 
+          "title": "Sourceoffund", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "string"
+          ]
+          
+        },
+        "batchId": {
+          "$id": "#root/instruction/batchId", 
+          "title": "Batchid", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "string"
+          ]
+          
+        },
+        "channelId": {
+          "$id": "#root/instruction/channelId", 
+          "title": "Channelid", 
+          "type": "string",
+          "default": "",
+          "examples": [
+            "string"
+          ]
+          
+        }
+      }
+    }
+
+  }
+}
+}
+}
